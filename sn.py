@@ -27,5 +27,5 @@ def sms():
   res.message("This is a reply")
   return str(res)
 
-if __name__ == "__main__":
-  app.run(debug = True)
+
+app.run(debug = True)
