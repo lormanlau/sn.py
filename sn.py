@@ -5,11 +5,9 @@ from config import account_sid, auth_token
 
 app = Flask(__name__)
 
-account_sid = account_sid
-auth_token = auth_token
 client = Client(account_sid, auth_token)
 
-message = client.messages \
+message = client.messages
                 .create(
                      body="Hello World",
                      from_='+16502977449',
