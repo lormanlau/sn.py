@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
 from config import account_sid, auth_token
@@ -28,4 +28,4 @@ def sms():
   return str(res)
 
 
-app.run(debug = True)
+app.run(host="0.0.0.0", port="80")
