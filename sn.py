@@ -27,5 +27,4 @@ def sms():
   res.message("This is a reply")
   return str(res)
 
-
 app.run(host="0.0.0.0", port="80")
