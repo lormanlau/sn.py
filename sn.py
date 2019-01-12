@@ -1,5 +1,6 @@
 from flask import Flask
 from twilio.rest import Client
+from twilio.twiml.messaging_response import MessagingResponse
 from config import account_sid, auth_token
 
 app = Flask(__name__)
@@ -15,8 +16,16 @@ message = client.messages \
                      to='+15106485381'
                  )
 
-@app.route('/', methods=['GET', 'POST'])
-def sms():
+@app.route('/')
+def hello():
   return "Hello, World!"
 
-app.run(debug = True)
+@app.route('/sms', methods=['POST'])
+def sms():
+  msg = request.values.get('Body')
+  res = MessagingResponse()
+  res.message("This is a reply")
+  return str(res)
+
+if __name__ == "__main__":
+  app.run(debug = True)
